@@ -42,22 +42,17 @@ footer{border-top:1px solid var(--line);padding:20px;text-align:center;color:#69
  .grid{grid-template-columns:1fr;gap:16px} h1{letter-spacing:-1.3px}
 }
 
-.more-wrap{margin-top:18px;display:flex;justify-content:center}
-.more-btn{border:1px solid #3b4652;background:linear-gradient(180deg,#171d24,#11161b);color:#e5e9ed;border-radius:12px;padding:11px 18px;font-size:13px;font-weight:850;cursor:pointer;transition:.18s;box-shadow:0 4px 15px rgba(0,0,0,.18)}
-.more-btn:hover{transform:translateY(-2px);border-color:#d9aa55;color:#f0c76e;box-shadow:0 7px 20px rgba(0,0,0,.25)}
-.more-panel{display:none;margin-top:14px;border:1px solid #27303a;background:#10151a;border-radius:14px;padding:12px}
-.more-panel.open{display:block;animation:fadeIn .18s ease}
+.more-area{margin:0 0 18px}
+.more-btn{width:100%;border:1px solid #3b4652;background:linear-gradient(135deg,#171d24,#11161b);color:#e7ebef;border-radius:13px;padding:12px 16px;font-size:13px;font-weight:850;cursor:pointer;transition:.18s;box-shadow:0 5px 18px rgba(0,0,0,.18)}
+.more-btn:hover{border-color:#d9aa55;color:#f0c76e;transform:translateY(-1px)}
+.more-panel{display:none;margin-top:9px;border:1px solid #29313a;background:#10151a;border-radius:13px;padding:6px}
+.more-panel.open{display:block}
 .more-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 10px;border-bottom:1px solid #202831}
 .more-item:last-child{border-bottom:0}
-.more-item strong{font-size:13px}
-.more-item span{display:block;color:#8f9aa6;font-size:11px;margin-top:3px}
-.more-item a{flex:0 0 auto;text-decoration:none;color:#111;background:#d9aa55;border-radius:9px;padding:7px 10px;font-size:11px;font-weight:850}
+.more-item strong{font-size:13px;display:block}
+.more-item small{display:block;color:#87929d;margin-top:3px;font-size:11px}
+.more-item a{flex:none;text-decoration:none;background:#d9aa55;color:#111;border-radius:8px;padding:7px 10px;font-size:11px;font-weight:850}
 .more-item a:hover{background:#f0c76e}
-.search-more{margin-top:10px;text-align:center}
-.search-more a{color:#cfd7de;text-decoration:none;font-size:12px;font-weight:750}
-.search-more a:hover{color:#f0c76e}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-
 </style>
 </head>
 <body>
@@ -81,6 +76,10 @@ footer{border-top:1px solid var(--line);padding:20px;text-align:center;color:#69
   </div>
 
   <div class="status"><span>Showing <strong id="shownCount"></strong></span><span>Tap a topic to filter</span></div>
+  <div class="more-area">
+  <button class="more-btn" id="moreBtn" type="button">＋ More FIDE Videos</button>
+  <div class="more-panel" id="morePanel"></div>
+</div>
   <div class="grid" id="videoGrid">
     <article class="card" data-topic="fide">
       <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/fGON0E0ej60?rel=0" title="FIDE Candidates 2026 — Round 1 LIVE" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
@@ -199,6 +198,63 @@ const shown=document.getElementById('shownCount');
 const total=document.getElementById('totalCount');
 const empty=document.getElementById('empty');
 total.textContent=cards.length;
+
+const moreData={
+  all:[
+    ["FIDE Videos","FIDE chess tournament","https://www.youtube.com/results?search_query=FIDE+chess+tournament"],
+    ["Tactics","chess tactics","https://www.youtube.com/results?search_query=chess+tactics"],
+    ["Strategy","chess strategy","https://www.youtube.com/results?search_query=chess+strategy"],
+    ["Openings","chess openings","https://www.youtube.com/results?search_query=chess+openings"],
+    ["Endgames","chess endgames","https://www.youtube.com/results?search_query=chess+endgames"],
+    ["Game Analysis","chess game analysis","https://www.youtube.com/results?search_query=chess+game+analysis"]
+  ],
+  fide:[
+    ["FIDE Tournament Highlights","FIDE chess tournament highlights","https://www.youtube.com/results?search_query=FIDE+chess+tournament+highlights"],
+    ["FIDE World Championship","FIDE World Championship chess","https://www.youtube.com/results?search_query=FIDE+World+Chess+Championship"],
+    ["FIDE Chess Olympiad","FIDE Chess Olympiad","https://www.youtube.com/results?search_query=FIDE+Chess+Olympiad"]
+  ],
+  tactics:[
+    ["Chess Tactics","chess tactics","https://www.youtube.com/results?search_query=chess+tactics"],
+    ["Tactical Patterns","chess tactical patterns","https://www.youtube.com/results?search_query=chess+tactical+patterns"],
+    ["Calculation Training","chess calculation tactics","https://www.youtube.com/results?search_query=chess+calculation+training"]
+  ],
+  strategy:[
+    ["Positional Strategy","positional chess strategy","https://www.youtube.com/results?search_query=positional+chess+strategy"],
+    ["Middlegame Plans","chess middlegame plans","https://www.youtube.com/results?search_query=chess+middlegame+plans"],
+    ["Strategic Chess Ideas","strategic chess ideas","https://www.youtube.com/results?search_query=strategic+chess+ideas"]
+  ],
+  openings:[
+    ["Opening Principles","chess opening principles","https://www.youtube.com/results?search_query=chess+opening+principles"],
+    ["Opening Repertoire","chess opening repertoire","https://www.youtube.com/results?search_query=chess+opening+repertoire"],
+    ["Opening Traps","chess opening traps","https://www.youtube.com/results?search_query=chess+opening+traps"]
+  ],
+  endgames:[
+    ["Pawn Endgames","chess pawn endgames","https://www.youtube.com/results?search_query=chess+pawn+endgames"],
+    ["Rook Endgames","chess rook endgames","https://www.youtube.com/results?search_query=chess+rook+endgames"],
+    ["Essential Endgames","chess endgame training","https://www.youtube.com/results?search_query=chess+endgame+training"]
+  ],
+  "game-analysis":[
+    ["Grandmaster Game Analysis","grandmaster chess game analysis","https://www.youtube.com/results?search_query=grandmaster+chess+game+analysis"],
+    ["Tournament Game Analysis","chess tournament game analysis","https://www.youtube.com/results?search_query=chess+tournament+game+analysis"],
+    ["Brilliant Chess Games","brilliant chess games analysis","https://www.youtube.com/results?search_query=brilliant+chess+games+analysis"]
+  ]
+};
+const moreLabels={
+  all:"＋ More Chess Videos",fide:"＋ More FIDE Videos",tactics:"＋ More Tactics Videos",
+  strategy:"＋ More Strategy Videos",openings:"＋ More Opening Videos",
+  endgames:"＋ More Endgame Videos","game-analysis":"＋ More Game Analysis Videos"
+};
+const moreBtn=document.getElementById("moreBtn"),morePanel=document.getElementById("morePanel");
+let currentFilter="all";
+function renderMore(filter){
+  currentFilter=filter;
+  moreBtn.textContent=moreLabels[filter];
+  morePanel.classList.remove("open");
+  morePanel.innerHTML=(moreData[filter]||[]).map(x=>`<div class="more-item"><div><strong>${x[0]}</strong><small>${x[1]}</small></div><a href="${x[2]}" target="_blank" rel="noopener">Search ↗</a></div>`).join("");
+}
+moreBtn.addEventListener("click",()=>{
+  morePanel.classList.toggle("open");
+});
 function applyFilter(filter){
   let count=0;
   cards.forEach(card=>{
@@ -209,19 +265,11 @@ function applyFilter(filter){
   shown.textContent=count;
   empty.style.display=count?'none':'block';
   buttons.forEach(b=>b.classList.toggle('active',b.dataset.filter===filter));
+  renderMore(filter);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 buttons.forEach(button=>button.addEventListener('click',()=>applyFilter(button.dataset.filter)));
 applyFilter('all');
-
-document.querySelectorAll('.more-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const panel=document.getElementById('more-'+btn.dataset.more);
-    const open=panel.classList.toggle('open');
-    btn.textContent=open ? '− Hide More Videos' : '＋ More '+btn.textContent.replace(/^＋ More |^− Hide /,'').replace(' Videos','')+' Videos';
-  });
-});
-
 </script>
 </body>
 </html>
