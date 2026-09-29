@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="MyChess64 — FIDE chess tournament videos.">
+<title>MyChess64 — FIDE Chess Videos</title>
+<style>
+  :root {
+    --bg:#0b0d10; --panel:#12161b; --panel2:#181d23; --text:#f5f7fa;
+    --muted:#9aa4af; --line:#29313a; --accent:#d8a84e;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  .topbar {
+    height:64px; border-bottom:1px solid var(--line); background:#0d1014;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 5vw; position:sticky; top:0; z-index:10;
+  }
+  .brand { font-weight:800; letter-spacing:-.5px; font-size:21px; }
+  .brand b { color:var(--accent); }
+  .source { color:var(--muted); font-size:13px; }
+  main { width:min(1400px,92vw); margin:auto; padding:42px 0 70px; }
+  .hero { margin-bottom:30px; }
+  .eyebrow {
+    color:var(--accent); text-transform:uppercase; letter-spacing:2px;
+    font-size:12px; font-weight:800; margin-bottom:10px;
+  }
+  h1 { font-size:clamp(32px,5vw,58px); line-height:1; margin:0 0 14px; letter-spacing:-2px; }
+  .intro { max-width:700px; color:var(--muted); line-height:1.6; margin:0; }
+  .notice {
+    margin-top:22px; padding:13px 16px; border:1px solid var(--line);
+    background:var(--panel); border-radius:12px; color:#c5ccd3; font-size:13px;
+  }
+  .grid {
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px;
+  }
+  .video-card {
+    background:var(--panel); border:1px solid var(--line); border-radius:16px;
+    overflow:hidden; transition:transform .2s,border-color .2s;
+  }
+  .video-card:hover { transform:translateY(-3px); border-color:#48525e; }
+  .video-wrap { aspect-ratio:16/9; background:#000; }
+  iframe { width:100%; height:100%; border:0; display:block; }
+  .card-body { padding:16px 17px 18px; }
+  .card-body span {
+    font-size:11px; text-transform:uppercase; letter-spacing:1.2px;
+    color:var(--accent); font-weight:800;
+  }
+  .card-body h2 { font-size:18px; margin:7px 0 12px; line-height:1.3; }
+  .card-body a {
+    color:#dce3ea; text-decoration:none; font-size:13px; font-weight:700;
+  }
+  .card-body a:hover { color:var(--accent); }
+  footer {
+    border-top:1px solid var(--line); color:var(--muted); text-align:center;
+    padding:25px 15px; font-size:12px;
+  }
+  @media (max-width:800px) {
+    .topbar { padding:0 4vw; }
+    .source { display:none; }
+    main { width:94vw; padding-top:30px; }
+    .grid { grid-template-columns:1fr; gap:18px; }
+    h1 { letter-spacing:-1.2px; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">MyChess<b>64</b></div>
+  <div class="source">FIDE Chess • Official YouTube embeds</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">Chess Videos</div>
+    <h1>FIDE Tournament Videos</h1>
+    <p class="intro">Watch selected FIDE tournament broadcasts and highlights in one clean chess-focused interface.</p>
+    <div class="notice">Videos are embedded from YouTube. For embedded playback, open this page from your HTTPS website (GitHub Pages or Netlify), not directly from a downloaded HTML file.</div>
+  </section>
+
+  <section class="grid">
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/fGON0E0ej60?rel=0" title="FIDE Candidates 2026 — Round 1 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 1 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=fGON0E0ej60" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/HSuoogTG-hI?rel=0" title="FIDE Candidates 2026 — Round 3 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 3 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=HSuoogTG-hI" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/DV1t49YFHLY?rel=0" title="FIDE Candidates 2026 — Round 5 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 5 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=DV1t49YFHLY" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/ViSAymeoGiU?rel=0" title="FIDE Candidates 2026 — Round 7 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 7 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=ViSAymeoGiU" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/SDBZJ3i_4fs?rel=0" title="FIDE Candidates 2026 — Round 9 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 9 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=SDBZJ3i_4fs" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/uEwWeI7FWj8?rel=0" title="FIDE Candidates 2026 — Round 10 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 10 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=uEwWeI7FWj8" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/YetaLdC9aBw?rel=0" title="FIDE Candidates 2026 — Round 13 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 13 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=YetaLdC9aBw" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/odd2bVZ_cv8?rel=0" title="FIDE Candidates 2026 — Round 14 LIVE" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>Candidates 2026</span>
+            <h2>FIDE Candidates 2026 — Round 14 LIVE</h2>
+            <a href="https://www.youtube.com/watch?v=odd2bVZ_cv8" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/5trWqyNQ-ho?rel=0" title="Highlights — Round 5" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>FIDE Candidates 2026</span>
+            <h2>Highlights — Round 5</h2>
+            <a href="https://www.youtube.com/watch?v=5trWqyNQ-ho" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/md06yCkBh2c?rel=0" title="Highlights — Round 7" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <span>FIDE Candidates 2026</span>
+            <h2>Highlights — Round 7</h2>
+            <a href="https://www.youtube.com/watch?v=md06yCkBh2c" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+        </article>
+  </section>
+</main>
+
+<footer>
+  MyChess64 • FIDE video collection • Videos remain hosted by YouTube / FIDE.
+</footer>
+</body>
+</html>
